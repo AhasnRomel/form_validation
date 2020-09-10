@@ -35,3 +35,46 @@
     
     move_uploaded_file($f_temp, 'images/' . $f_name);
 ?>
+
+## HTML Code
+
+<div class="wrap shadow">
+		<div class="card">
+			<div class="card-body">
+				<h2>User Registration Form</h2>
+
+				<form action="" method="POST" enctype="multipart/form-data">
+					<div class="form-group">
+                        <?php if (isset($msg_1)){echo $msg_1;}?>
+						<label for=""></label>
+						<input name="name" class="form-control" type="text" placeholder="Enter Your Name">
+					</div>
+					<div class="form-group">
+                        <?php if (isset($msg_2)){echo $msg_2;}?>
+						<label for=""><?php if (isset( $msg_email)){ echo "<p style='color:#ff0000'>" . $msg_email . "</p>";} ?></label>
+						<input name="email" class="form-control" type="text" placeholder='Enter Your Email'>
+					</div>
+					<div class="form-group">
+                        <?php if (isset($msg_3)){echo $msg_3;}?>
+						<label for=""><?php if (isset( $msg_cell)){ echo "<p style='color:red'>" . $msg_cell . "</p>";} ?></label>
+						<input name="cell" class="form-control" type="text" placeholder='Enter Your Cell Number'>
+					</div>
+					<div class="form-group">
+                        <?php if (isset($msg_4)){echo $msg_4;}?>
+						<label for=""></label>
+						<input name="uname" class="form-control" type="text" placeholder="Enter Your Username">
+
+					</div>
+                    <div class="form-group">
+                        <?php if (isset($msg_4)){echo $msg_4;}?>
+                        <label for=""></label>
+                        <input name="img" class="form-control" type="file" >
+
+                    </div>
+					<div class="form-group">
+						<input name="add_file" class="btn btn-primary" type="submit" value="Sign Up">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
