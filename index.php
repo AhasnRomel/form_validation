@@ -38,13 +38,25 @@
                 if (empty($u_name)){
                     $msg_4 = "<p class='alert alert-danger'>User Name Is Required !<button class='close' data-dismiss='alert'>&times;</button></p>";
                 }
-            }
-            $f_name = $_FILES['img']['name'];
-            $f_type = $_FILES['img']['type'];
-            $f_temp = $_FILES['img']['tmp_name'];
-            $f_size = $_FILES['img']['size'];
 
-            move_uploaded_file($f_temp, 'images/' . $f_name);
+                if (empty($name) || empty($email) || empty($cell) || empty($u_name)){
+                    $msg_img = "<p class='alert alert-danger'>All Fields Are Required !<button class='close' data-dismiss='alert'>&times;</button></p>";
+                }else {
+
+                    //            ## File Upload...
+
+                    $f_name = $_FILES['img']['name'];
+                    $f_type = $_FILES['img']['type'];
+                    $f_tmp = $_FILES['img']['tmp_name'];
+                    $f_size = $_FILES['img']['size'];
+
+                    $u_File = md5(time() . rand()) . $f_name;
+                    move_uploaded_file($f_tmp, 'images/' . $u_File);
+
+                    }
+
+            }
+
 	 ?>
 
 	<div class="wrap shadow">
@@ -75,15 +87,15 @@
 
 					</div>
                     <div class="form-group">
-                        <?php if (isset($msg_4)){echo $msg_4;}?>
+                        <?php if (isset($msg_img)){echo $msg_img;}?>
                         <label for=""></label>
                         <input name="img" class="form-control" type="file" >
 
                     </div>
 					<div class="form-group">
-						<input name="add_file" class="btn btn-primary" type="submit" value="Sign Up">
+						<input name="add_file" class="btn btn-secondary" type="submit" value="Submit">
 					</div>
-				</form>
+                </form>
 			</div>
 		</div>
 	</div>
